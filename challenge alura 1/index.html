@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Decodificador de texto</title>
+</head>
+<body>
+    <header class="logo"><img src="Frame 6.png"></header>
+    <div class="container">
+        <div class="container__conteudo">
+            <div class="container__texto">
+                <textarea id="inputTexto" rows="15" cols="40" class="texto__container__1"></textarea>
+                <p class="texto__informativo"><img src="Group.png"> apenas letras minúsculas e sem acento</p>
+                <button onclick="criptografar()" class="container__botao1 texto__container__2">criptografar</button>
+                <button onclick="descriptografar()" class="container__botao2 texto__container__3">decodificar</button>
+            </div>
+        </div>
+    </div>
+    <div class="container__mostra">
+        <div>
+            <div class="container__mostra__texto" id="mensagemInicial">
+                <img src="High quality products 1 1.svg" class="imagem2">
+                <p class="container__mostra__texto1">nenhuma mensagem encontrada</p>
+            </div>
+            <div class="container__mostra__texto" id="mensagemResultado" style="display: none;">
+                <p id="resultadoTexto" class="container__mostra__texto1"></p>
+                <button onclick="copiarTexto()" class="botao__copiar">Copiar</button>
+        </div>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+<footer>
+</footer>
+</html>
