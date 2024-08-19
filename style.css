@@ -35,6 +35,8 @@ body {
     height: 67px;
     width: 328px;
     border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    color: white;
 }
 
 .texto__container__2 {
@@ -48,6 +50,8 @@ body {
     height: 67px;
     width: 328px;
     border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    color: #0A3871;
 }
 
 .texto__container__3 {
@@ -75,4 +79,11 @@ texto__informativo {
     flex-direction:column;
     align-items: center;
     font-weight: 700;
+}
+
+.texto__mensagem__1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    color: #495057;
+    border: none;
 }

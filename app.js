@@ -1,66 +1,65 @@
-function botaoCopiar() {
-    document.querySelector('.botao__copiar').style.display = 'block';
-}
+// Chama a função ao carregar a página
+document.addEventListener("DOMContentLoaded", function() {
+    verificarTexto();
+});
 
-// Função para criptografar o texto
 function criptografar() {
-    let texto = document.getElementById('inputTexto').value;
-    if (texto.trim() !== "") {
-    let textoCriptografado = texto.replace(/e/g, 'enter')
-                                  .replace(/i/g, 'imes')
-                                  .replace(/a/g, 'ai')
-                                  .replace(/o/g, 'ober')
-                                  .replace(/u/g, 'ufat');
-    document.getElementById('resultadoTexto').innerText = textoCriptografado;
-    mostrarResultado();
-} else {
-    esconderResultado();
-}}
-
-
-
-// Função para descriptografar o texto
-function descriptografar() {
-    let texto = document.getElementById('inputTexto').value;
-    if (texto.trim() !== "") {
-    let descriptografar = texto.replace(/enter/g, 'e')
-                                     .replace(/imes/g, 'i')
-                                     .replace(/ai/g, 'a')
-                                     .replace(/ober/g, 'o')
-                                     .replace(/ufat/g, 'u');
-    document.getElementById('resultadoTexto').innerText = descriptografar;
-    mostrarResultado();
-} else {
-    esconderResultado();
-}}
-
-// esconder o texto inicial
-function esconderResultado(img, textoInicial) {
-    let x = document.getElementById('img');
-    let y = document.getElementById('textoInicial');
-    if (x.style.display === block) {
-        x.style.display = none;
-    } else {
-        x.style.display = "block";
-      } if (y.style.display === block) {
-        y.style.display = none;
-    } else {
-        y.style.display = "block";
-      }
+    let texto = document.getElementById("input-text").value;
+    if (texto) {
+        let textoCriptografado = texto
+            .replace(/e/g, "enter")
+            .replace(/i/g, "imes")
+            .replace(/a/g, "ai")
+            .replace(/o/g, "ober")
+            .replace(/u/g, "ufat");
+        document.getElementById("output-text").value = textoCriptografado;
+        verificarTexto();
     }
-
-function botaoCopiar(botaoCopiar) {
-    document.getElementById('botaoCopiar').style.display = 'none';
 }
 
-// Função para copiar o texto para a área de transferência
+function descriptografar() {
+    let texto = document.getElementById("input-text").value;
+    if (texto) {
+        let textoDescriptografado = texto
+            .replace(/enter/g, "e")
+            .replace(/imes/g, "i")
+            .replace(/ai/g, "a")
+            .replace(/ober/g, "o")
+            .replace(/ufat/g, "u");
+        document.getElementById("output-text").value = textoDescriptografado;
+        verificarTexto();
+    }
+}
+
 function copiarTexto() {
-    let textoCopiado = document.getElementById('resultadoTexto').innerText;
-    navigator.clipboard.writeText(textoCopiado)
+    let texto = document.getElementById("output-text").value;
+    navigator.clipboard.writeText(texto)
         .then(() => {
-            alert('Texto copiado para a área de transferência');
+            alert("Texto copiado para a área de transferência!");
         })
         .catch(err => {
-            alert('Erro ao copiar texto: ', err);
+            console.error("Erro ao copiar o texto: ", err);
         });
+}
+
+function verificarTexto() {
+    const img = document.getElementById("img");
+    const textoInicial = document.getElementById("textoInicial");
+    const outputText = document.getElementById("output-text");
+    const botaoCopiar = document.getElementById("botao-copiar");
+    
+    // Verifica se o textarea tem algum texto
+    if (outputText.value.trim() !== "") {
+        // Se tiver texto, esconde a imagem e o texto inicial, e mostra o textarea e o botão
+        img.style.display = "none";
+        textoInicial.style.display = "none";
+        outputText.style.display = "block";
+        botaoCopiar.style.display = "block";
+    } else {
+        // Se não tiver texto, mostra a imagem e o texto inicial, e esconde o textarea e o botão
+        img.style.display = "block";
+        textoInicial.style.display = "block";
+        outputText.style.display = "none";
+        botaoCopiar.style.display = "none";
+    }
 }

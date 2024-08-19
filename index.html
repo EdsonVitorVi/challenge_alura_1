@@ -14,10 +14,12 @@
     <div class="container">
         <div class="container__conteudo">
             <div class="container__texto">
-                <textarea id="inputTexto" rows="15" cols="40" class="texto__container__1"></textarea>
+                <textarea id="input-text" placeholder="Digite seu texto aqui..." rows="15" cols="40" class="texto__container__1"></textarea>
                 <p class="texto__informativo"><img src="Group.png"> apenas letras minúsculas e sem acento</p>
-                <button onclick="criptografar()" class="container__botao1 texto__container__2">criptografar</button>
-                <button onclick="descriptografar()" class="container__botao2 texto__container__3">decodificar</button>
+                <div>
+                    <button onclick="criptografar()" class="container__botao1">criptografar</button>
+                    <button onclick="descriptografar()" class="container__botao2">decodificar</button>
+                </div>
             </div>
         </div>
     </div>
@@ -26,8 +28,9 @@
             <div class="container__mostra__texto">
                 <img src="High quality products 1 1.svg" id="img">
                 <p id="textoInicial" class = "texto__mensagem">Nenhuma mensagem encontrada</p>
+                <textarea rows="20" cols="20" id="output-text" style="display: none;" class="texto__mensagem__1"></textarea>
                 <p id="resultadoTexto" class="container__mostra__texto1"></p>
-                 <button onclick="copiarTexto()" class="botao__copiar" id="botaoCopiar">Copiar</button>
+                 <button onclick="copiarTexto()" class="botao__copiar" id="botao-copiar">Copiar</button>
         </div>
     </div>
     <script src="app.js" defer></script>
